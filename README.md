@@ -1,6 +1,6 @@
 # Clarence Linux Doc
 
-Java 后端转嵌入式 Linux / 硬件方向的学习知识库，基于 [VuePress](https://v2.vuepress.vuejs.org/zh/) + [vuepress-theme-hope](https://theme-hope.vuejs.press/zh/) 构建。
+Java 后端 转嵌入式 Linux / 硬件方向的学习知识库，基于 [VuePress](https://v2.vuepress.vuejs.org/zh/) + [vuepress-theme-hope](https://theme-hope.vuejs.press/zh/) 构建。
 
 相关 Java 项目：[clarence-java-doc](../clarence-java-doc)（Java 后端知识体系）。
 
