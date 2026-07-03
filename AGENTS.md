@@ -69,9 +69,29 @@ docs/
 
 - 每个目录下文件以数字前缀排序：`0_xxx.md`、`1_xxx.md`，侧边栏按前缀数字自动排序。
 - 侧边栏标题取自每篇文档的第一个 `# 一级标题`（见 `docs/.vuepress/config.js` 的 `getSidebarFromDir`）。
-- 新增目录时需要同步修改 `config.js` 中的 `navbar`（flat + dropdown 两份）和 `sidebar`。
 - 图片资源放 `docs/assets/<模块名>/` 下。
 - 导航栏风格由 `.env` 的 `NAVBAR_STYLE` 控制（flat / dropdown）。
+
+## 新增模块清单（漏一步侧边栏/导航就会缺）
+
+在 `docs/` 下新建一个模块目录（如 `docs/foo/`）时，需同步改 `docs/.vuepress/config.js` 三处：
+
+1. **`navbarFlat`**：加一条 `{text: '模块名', link: '/foo/0_xxx'}`。
+2. **`navbarDropdown`**：加到对应分组的 `children` 里（或新建一个分组）。⚠️ flat 和 dropdown 是两份独立配置，必须都改。
+3. **`sidebar`**：加一行 `'/foo/': getSidebarFromDir(path.resolve(__dirname, '../foo'))`，否则该模块无侧边栏。
+
+补充：
+
+- `link` 指向的是**不带 `.md` 后缀**的路径，且要对准该模块排序最靠前的那篇（通常是 `0_xxx`）。
+- 新模块下**至少要有一篇带 `# 一级标题`的 `.md`**，否则 `getSidebarFromDir` 生成的标题会退化成文件名。
+- 首页 `docs/README.md` 的 `highlights` 若要展示新模块，另需手动加卡片（非自动）。
+- 改完务必跑一次 `npm run docs:build` 验证：新增模块的页面数应随之增加，构建无报错。
+
+## 改名 / 迁移清单
+
+若要改项目名或部署路径，需同步：`package.json`(name/description)、`package-lock.json`(name)、
+`config.js`(`SITE_BASE` 决定 GitHub Pages URL、`title`)、`docs/README.md`(heroText)、根 `README.md`、
+`CLAUDE.md` / `AGENTS.md` 标题行；以及仓库外的两步：本地文件夹重命名、GitHub 仓库改名（`base` 必须与仓库名一致，否则线上 404）。
 
 ## 常用命令
 
