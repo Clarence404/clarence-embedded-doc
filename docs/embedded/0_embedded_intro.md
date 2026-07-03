@@ -8,7 +8,9 @@
 
 ## MCU vs MPU：单片机与嵌入式 Linux 的边界
 
-<!-- TODO -->
+详见 [Linux 与 MCU 的区别](/overview/1_linux_vs_mcu)。
+
+<!-- TODO：本节聚焦嵌入式 Linux 侧的补充，核心对比不再重复 -->
 
 ## 典型开发板选型（树莓派 / i.MX6ULL / STM32MP1）
 

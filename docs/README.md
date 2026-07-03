@@ -3,19 +3,19 @@ home: true
 title: 首页
 
 heroImage: /images/logo.png
-heroText: Clarence Linux Doc
+heroText: Clarence Embedded Doc
 tagline: Java 后端 → 嵌入式软件 → 嵌入式硬件 · 循序渐进的全链路转型路线
 heroFullScreen: true
 
 actions:
+  - text: 体系总览
+    link: /overview/0_layered_arch
+    type: primary
   - text: 开发总结
     link: /interview/0_linux
-    type: primary
+    type: default
   - text: 开始阅读
     link: /basics/0_linux_intro
-    type: default
-  - text: 嵌入式 Linux
-    link: /embedded/0_embedded_intro
     type: default
 
 highlights:
@@ -110,6 +110,24 @@ highlights:
         icon: gauge
         details: ADC / 运放调理 / 电能计量采样原理，从物理量到数字量
         link: /hardware/6_sensor_adc
+
+  - header: 参考视角 · MCU
+    description: 南向联调对象，懂即可不深耕——网关对面坐着的就是 MCU 组
+    bgImageStyle:
+      background-color: rgba(236, 244, 255, 0.6)
+    features:
+      - title: MCU 概述
+        icon: microchip
+        details: STM32 / ESP32 / 计量 SoC 家族，MCU 与嵌入式 Linux 的选型边界
+        link: /mcu/0_mcu_intro
+      - title: 裸机与 RTOS
+        icon: list-check
+        details: 寄存器编程思维 / FreeRTOS 任务调度，对照 Linux 驱动与 pthread 理解
+        link: /mcu/1_bare_metal
+      - title: 与 Linux 网关协作
+        icon: handshake
+        details: 串口协议设计 / 固件 OTA / 联调定位问题 / 跨团队工程约定
+        link: /mcu/3_mcu_linux_link
 
   - header: 项目驱动 · 实战清单
     description: 每个阶段配一个可写进简历的项目，学完即产出

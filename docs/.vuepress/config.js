@@ -10,9 +10,10 @@ import 'dotenv/config';
 //   dropdown  → 分组下拉菜单
 // 本地：改 .env 文件即可；CI/CD：workflow env 里覆盖
 const NAVBAR_STYLE = process.env.NAVBAR_STYLE ?? 'dropdown';
-const SITE_BASE = '/clarence-linux-doc/';
+const SITE_BASE = '/clarence-embedded-doc/';
 
 const navbarFlat = [
+    {text: '体系总览',   link: '/overview/0_layered_arch'},
     {text: '开发总结',   link: '/interview/0_linux'},
     {text: 'Linux 基础', link: '/basics/0_linux_intro'},
     {text: 'Shell',      link: '/shell/0_shell_intro'},
@@ -27,11 +28,13 @@ const navbarFlat = [
     {text: '工业协议',   link: '/protocols/0_modbus'},
     {text: 'IoT 网关',   link: '/gateway/0_gateway_arch'},
     {text: '嵌入式硬件', link: '/hardware/0_circuit_base'},
+    {text: 'MCU 参考',   link: '/mcu/0_mcu_intro'},
     {text: '实战项目',   link: '/projects/0_mqtt_simulator'},
     {text: '调试工具',   link: '/debugging/0_gdb'},
 ];
 
 const navbarDropdown = [
+    {text: '体系总览', link: '/overview/0_layered_arch'},
     {text: '开发总结', link: '/interview/0_linux'},
     {
         text: 'Linux 基础',
@@ -82,6 +85,15 @@ const navbarDropdown = [
             {text: '传感器与采集',   link: '/hardware/6_sensor_adc'},
         ],
     },
+    {
+        text: 'MCU 参考',
+        children: [
+            {text: 'MCU 概述',            link: '/mcu/0_mcu_intro'},
+            {text: '裸机开发入门',        link: '/mcu/1_bare_metal'},
+            {text: 'RTOS 基础',           link: '/mcu/2_rtos'},
+            {text: '与 Linux 网关协作',   link: '/mcu/3_mcu_linux_link'},
+        ],
+    },
     {text: '实战项目', link: '/projects/0_mqtt_simulator'},
     {
         text: '工程调试',
@@ -125,7 +137,7 @@ export default defineUserConfig({
     base: SITE_BASE,
     lang: 'zh-CN',
     port: 1001,
-    title: 'Clarence Linux Doc',
+    title: 'Clarence Embedded Doc',
     description: 'Java 后端 → 嵌入式软件 → 嵌入式硬件，循序渐进的全链路学习知识库',
     // 处理vite 打包警告
     bundler: viteBundler({
@@ -145,6 +157,7 @@ export default defineUserConfig({
         logo: '/images/logo.png',
         navbar: NAVBAR_STYLE === 'dropdown' ? navbarDropdown : navbarFlat,
         sidebar: {
+            '/overview/':        getSidebarFromDir(path.resolve(__dirname, '../overview')),
             '/interview/':       getSidebarFromDir(path.resolve(__dirname, '../interview')),
             '/basics/':          getSidebarFromDir(path.resolve(__dirname, '../basics')),
             '/shell/':           getSidebarFromDir(path.resolve(__dirname, '../shell')),
@@ -159,6 +172,7 @@ export default defineUserConfig({
             '/protocols/':       getSidebarFromDir(path.resolve(__dirname, '../protocols')),
             '/gateway/':         getSidebarFromDir(path.resolve(__dirname, '../gateway')),
             '/hardware/':        getSidebarFromDir(path.resolve(__dirname, '../hardware')),
+            '/mcu/':             getSidebarFromDir(path.resolve(__dirname, '../mcu')),
             '/projects/':        getSidebarFromDir(path.resolve(__dirname, '../projects')),
             '/debugging/':       getSidebarFromDir(path.resolve(__dirname, '../debugging')),
         },

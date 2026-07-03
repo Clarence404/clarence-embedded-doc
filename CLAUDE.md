@@ -1,4 +1,4 @@
-# clarence-linux-doc 知识库总览
+# clarence-embedded-doc 知识库总览
 
 > Java 后端 → 嵌入式软件 → 嵌入式硬件，循序渐进的全链路学习文档站，基于 VuePress 构建。
 > 定位：Java 能力向下延伸而非换赛道——先做「懂硬件的软件工程师」（主线），再到「能做简单硬件」（延伸），
@@ -10,6 +10,7 @@
 
 ```
 docs/
+├── overview/         体系总览（导读）：云·Linux·MCU·硬件四层对接体系 / Linux 与 MCU 区别
 ├── interview/        开发总结：Linux / C / 嵌入式高频问题汇总
 ├── basics/           Linux 基础：概述 / 文件系统 / 常用命令 / 文本三剑客
 ├── shell/            Shell：基础语法 / 脚本编程
@@ -23,7 +24,8 @@ docs/
 ├── kernel/           内核机制：启动流程 / 内存管理 / 进程调度
 ├── protocols/        工业协议：Modbus / CAN / MQTT
 ├── gateway/          IoT 网关：网关架构 / 边缘计算 / 与 Java 后端集成 / 边缘 AI
-├── hardware/         嵌入式硬件：电路基础 / 模电数电 / 原理图 / 仪器 / PCB / 电源信号 / 传感器采集
+├── hardware/         嵌入式硬件（延伸）：电路基础 / 模电数电 / 原理图 / 仪器 / PCB / 电源信号 / 传感器采集
+├── mcu/              MCU（参考，懂即可）：概述 / 裸机 / RTOS / 与 Linux 网关协作
 ├── projects/         实战项目：MQTT 模拟器 / Modbus 网关 / IoT 平台 / AI 边缘网关 / PCB 到云端闭环
 └── debugging/        调试工具：gdb / strace & perf / 交叉调试
 ```
@@ -46,8 +48,20 @@ docs/
 大阶段三 · 嵌入式硬件（延伸，从「懂」到「能做」）
     hardware：电路基础 → 模电数电 → 原理图 → 仪器 → PCB → 电源信号 → 传感器采集
 
+参考线 · MCU（懂即可，服务于南向联调，不以转 MCU 开发为目标）
+    mcu：概述 → 裸机 → RTOS → 与 Linux 网关协作
+
 项目驱动：projects 五个项目贯穿三大阶段，项目五（PCB 到云端闭环）为终极整合
 ```
+
+---
+
+## 内容层级
+
+- **导读**：overview，全站第一入口，讲清四层对接链与各模块的定位关系。
+- **主线（做深做透）**：Linux 相关 13 个模块，目标是胜任嵌入式 Linux / IoT 网关岗位。
+- **延伸（从懂到能做）**：hardware，目标是能设计简单采集板。
+- **参考（懂即可）**：mcu，目标是能与 MCU 团队高效联调，不深耕。
 
 ---
 
