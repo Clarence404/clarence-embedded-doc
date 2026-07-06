@@ -10,7 +10,7 @@ import 'dotenv/config';
 //   dropdown  → 分组下拉菜单
 // 本地：改 .env 文件即可；CI/CD：workflow env 里覆盖
 const NAVBAR_STYLE = process.env.NAVBAR_STYLE ?? 'dropdown';
-const SITE_BASE = '/clarence-embedded-doc/';
+const SITE_BASE = '/embedded-doc/';
 
 const navbarFlat = [
     {text: '体系总览',   link: '/overview/0_layered_arch'},

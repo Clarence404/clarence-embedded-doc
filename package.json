@@ -1,7 +1,7 @@
 {
-  "name": "clarence-embedded-doc",
+  "name": "embedded-doc",
   "version": "0.0.1",
-  "description": "clarence-embedded-doc",
+  "description": "embedded-doc",
   "license": "MIT",
   "type": "module",
   "scripts": {
